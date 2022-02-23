@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: global-app
+  name: python-simple-rest
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 9.7.2
-    chart: nginx
+    repoURL: 'https://sha-net.github.io/helm-chart/'
+    targetRevision: 1.1.1
+    chart: python-simple-rest
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: global-app
+    namespace: python-simple-rest
   syncPolicy:
     automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
       prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
